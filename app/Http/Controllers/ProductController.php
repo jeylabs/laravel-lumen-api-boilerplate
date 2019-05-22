@@ -74,21 +74,8 @@ class ProductController extends Controller
         $product = Product::find($productId);
         if ($product) {
             $product->delete();
-            return $this->messageReponse(true, 'Product removed successfully!');
+            return $this->messageResponse(true, 'Product removed successfully!');
         }
-        return $this->messageReponse(false, 'Product not founded!');
-    }
-
-    /**
-     * @param $success
-     * @param $message
-     * @return JsonResponse
-     */
-    private function messageReponse($success, $message)
-    {
-        return response()->json([
-            'success' => $success,
-            'message' => $message
-        ]);
+        return $this->messageResponse(false, 'Product not founded!');
     }
 }
