@@ -83,6 +83,9 @@ $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 $app->register(App\Providers\RouteServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+$app->register(Pearl\RequestValidate\RequestServiceProvider::class);
+
+
 
 /*
 |--------------------------------------------------------------------------

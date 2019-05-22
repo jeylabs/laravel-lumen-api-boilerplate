@@ -2,46 +2,93 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductStoreRequest;
+use App\Http\Resources\ProductResource;
 use App\Product;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ProductController extends Controller
 {
+    /**
+     * @return AnonymousResourceCollection
+     */
     public function index()
     {
-        $products = Product::all();
-        return response()->json($products);
+        return ProductResource::collection(
+            Product::paginate(15)
+        );
     }
 
-    public function create(Request $request)
+    /**
+     * @param ProductStoreRequest $request
+     * @return ProductResource
+     */
+    public function create(ProductStoreRequest $request)
     {
+        /** @var Product $product */
         $product = new Product;
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->description = $request->description;
+        $product->setAttribute('name', $request->input('name'));
+        $product->setAttribute('price', $request->input('price'));
+        $product->setAttribute('description', $request->input('description'));
 
         $product->save();
-        return response()->json($product);
+        return new ProductResource($product);
     }
 
-    public function show(Product $product)
+    /**
+     * @param $productId
+     * @return ProductResource
+     */
+    public function show($productId)
     {
-        return response()->json($product);
+        return new ProductResource(
+            Product::find($productId)
+        );
     }
 
-    public function update(Request $request, Product $product)
+    /**
+     * @param ProductStoreRequest $request
+     * @param $productId
+     * @return ProductResource
+     */
+    public function update(ProductStoreRequest $request, $productId)
     {
-        $product->name = $request->input('name');
-        $product->price = $request->input('price');
-        $product->description = $request->input('description');
+        /** @var Product $product */
+        $product = Product::find($productId);
+        $product->setAttribute('name', $request->input('name'));
+        $product->setAttribute('price', $request->input('price'));
+        $product->setAttribute('description', $request->input('description'));
         $product->save();
-        return response()->json($product);
+        return new ProductResource($product);
     }
 
-    public function destroy(Product $product)
+    /**
+     * @param $productId
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function destroy($productId)
     {
-        $product->delete();
-        return response()->json('product removed successfully');
+        /** @var Product $product */
+        $product = Product::find($productId);
+        if ($product) {
+            $product->delete();
+            return $this->messageReponse(true, 'Product removed successfully!');
+        }
+        return $this->messageReponse(false, 'Product not founded!');
     }
 
+    /**
+     * @param $success
+     * @param $message
+     * @return JsonResponse
+     */
+    private function messageReponse($success, $message)
+    {
+        return response()->json([
+            'success' => $success,
+            'message' => $message
+        ]);
+    }
 }
