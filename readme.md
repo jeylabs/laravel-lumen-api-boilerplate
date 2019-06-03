@@ -10,6 +10,8 @@ Write some easy APIs.
 
 - Lumen [https://lumen.laravel.com/docs/5.8](https://lumen.laravel.com/docs/5.8)
 - dusterio/lumen-passport [https://github.com/dusterio/lumen-passport](https://github.com/dusterio/lumen-passport)
+- flipbox/lumen-generator [https://github.com/flipbox/lumen-generator](https://github.com/flipbox/lumen-generator)
+- pearl/lumen-request-validate [https://github.com/pearl/lumen-request-validate](https://github.com/pearl/lumen-request-validate)
 - Rest API Debug [Postman](https://www.getpostman.com/)
 
 ## Installation
