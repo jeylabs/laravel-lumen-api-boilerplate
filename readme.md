@@ -116,3 +116,20 @@ The user credentials are:
 
 Username: admin@admin.com
 Password: secret
+
+
+### TODO
+
+- [ ] phpunit
+
+### Tips
+
+Test the project
+
+```bash
+php artisan serve
+```
+Laravel development server will start: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+## License
+[MIT license](http://opensource.org/licenses/MIT)
