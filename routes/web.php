@@ -11,7 +11,7 @@
 |
 */
 
-$router->group(['prefix' => 'api/'], function () use ($router) {
+$router->group(['prefix' => 'api/', 'middleware' => 'auth'], function () use ($router) {
     $router->group(['prefix' => 'products/'], function () use ($router) {
         $router->get('/', 'ProductController@index');
         $router->post('/', 'ProductController@create');
