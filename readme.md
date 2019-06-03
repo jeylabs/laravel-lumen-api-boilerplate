@@ -18,8 +18,6 @@ Write some easy APIs.
 
 ### Install the project
 
-#### Using GIT
-
 ``` bash
 git clone git@github.com:jeylabs/laravel-lumen-api-boilerplate.git api_service
 cd api_service
