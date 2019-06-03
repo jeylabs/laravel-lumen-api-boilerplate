@@ -86,7 +86,7 @@ Next, you should run the passport:install command. This command will create the 
 php artisan passport:install
 ```
 
-### Available Command
+#### Available Command
 
 ```
 key:generate      Set the application key
@@ -117,7 +117,7 @@ route:list        Display all registered routes.
 ```
 
 
-#### Installed routes
+### Installed routes
 
 This boilerplate have following routes after you call routes() method (see instructions below):
 
