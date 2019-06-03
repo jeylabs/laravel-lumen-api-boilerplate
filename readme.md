@@ -106,7 +106,7 @@ make:seeder       Create a new seeder class
 make:test         Create a new test class
 ```
 
-### Additional Useful Command
+#### Additional Useful Command
 
 ```
 clear-compiled    Remove the compiled class file
@@ -117,7 +117,7 @@ route:list        Display all registered routes.
 ```
 
 
-### Installed routes
+#### Installed routes
 
 This boilerplate have following routes after you call routes() method (see instructions below):
 
