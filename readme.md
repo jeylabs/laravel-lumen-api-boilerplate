@@ -112,7 +112,7 @@ API framework so only API-related routes are present.
 
 After your project is installed and you can access it in a browser, click the login button on the right of the navigation bar.
 
-The administrator credentials are:
+The user credentials are:
 
 Username: admin@admin.com
 Password: secret
