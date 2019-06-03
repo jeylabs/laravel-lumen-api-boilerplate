@@ -73,11 +73,6 @@ php artisan migrate
 
 You should see a message for each table migrated, if you don't and see errors, than your credentials are most likely not correct.
 
-We are now going to set the administrator account information. To do this you need to navigate to this file and change the name/email/password of the Administrator account.
-
-You can delete the other dummy users, but do not delete the administrator account or you will not be able to access the backend.
-
-Now seed the database with:
 
 ``` bash
 php artisan db:seed
