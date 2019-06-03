@@ -21,8 +21,6 @@ Write some easy APIs.
 ``` bash
 git clone git@github.com:jeylabs/laravel-lumen-api-boilerplate.git api_service
 cd api_service
-composer install
-cp .env.example .env
 ```
 
 
